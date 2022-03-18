@@ -1,0 +1,17 @@
+.success {
+  background-color: greenyellow;
+}
+
+.danger {
+  background-color: red;
+}
+
+.banner {
+  width: 350px;
+  position: fixed;
+  margin: 4rem 0;
+  padding: 1rem;
+  right: 0;
+  border: none;
+  border-radius: 1rem;
+}
