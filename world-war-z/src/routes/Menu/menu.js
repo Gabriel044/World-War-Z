@@ -7,7 +7,7 @@ import "./menu.css";
 export default function Menu({ props }) {
   console.log(props);
   return (
-    <div id="Container">
+    <div id="ContainerMenu">
       <div id="SideBar">Sidebar</div>
       <Routes>
         <Route path="/blog" element={<Blog />} />

@@ -16,6 +16,85 @@ export default function Login() {
   let password = "";
   let bunker = "";
 
+  function login() {
+    const requestOptions = {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "content-type": "application/json",
+        "Access-Control-Allow-Origin": " *",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+    };
+    fetch("http://localhost:5000/authAPI/login", requestOptions)
+      .then((res) => {
+        console.log(res);
+        if (res.ok) {
+          //Remember to return from request the bunker, and send to new page the username and bunker.
+          navigate("/menu/blog", {
+            username: username,
+            bunker: bunker,
+          });
+        } else {
+          setBanner({
+            show: true,
+            status: false,
+            message: "Invalid Credentials!",
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setBanner({
+          show: true,
+          status: false,
+          message: err.message,
+        });
+      });
+  }
+
+  function register() {
+    const requestOptions = {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "content-type": "application/json",
+        "Access-Control-Allow-Origin": " *",
+      },
+      body: JSON.stringify({
+        [username]: { password: password, bunker: bunker },
+      }),
+    };
+    fetch("http://localhost:5000/authAPI/register", requestOptions)
+      .then((res) => {
+        console.log(res);
+        if (res.ok) {
+          setBanner({
+            show: true,
+            status: true,
+            message: "User registered successfully!",
+          });
+        } else {
+          setBanner({
+            show: true,
+            status: false,
+            message: "Error registering new user!",
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setBanner({
+          show: true,
+          status: false,
+          message: err.message,
+        });
+      });
+  }
+
   if (banner.show)
     setTimeout(() => {
       setBanner({
@@ -26,7 +105,7 @@ export default function Login() {
     }, 10000);
 
   return (
-    <div id="Container">
+    <div id="ContainerLogin">
       {banner.show && (
         <Banner status={banner.status} message={banner.message} />
       )}
@@ -64,56 +143,12 @@ export default function Login() {
           <br />
           <input
             type="password"
-            placeholder="Secure Password"
+            placeholder="Secret Password"
             onChange={(e) => (password = e.target.value)}
           />
         </div>
         {headerItem == "Login" ? (
-          <>
-            <button
-              onClick={() => {
-                const requestOptions = {
-                  method: "POST",
-                  mode: "cors",
-                  headers: {
-                    "content-type": "application/json",
-                    "Access-Control-Allow-Origin": " *",
-                  },
-                  body: JSON.stringify({
-                    username: username,
-                    password: password,
-                  }),
-                };
-                fetch("http://localhost:5000/authAPI/login", requestOptions)
-                  .then((res) => {
-                    console.log(res);
-                    if (res.ok) {
-                      //Remember to return from request the bunker, and send to new page the username and bunker.
-                      navigate("/menu/blog", {
-                        username: username,
-                        bunker: bunker,
-                      });
-                    } else {
-                      setBanner({
-                        show: true,
-                        status: false,
-                        message: "Invalid Credentials!",
-                      });
-                    }
-                  })
-                  .catch((err) => {
-                    console.log(err.message);
-                    setBanner({
-                      show: true,
-                      status: false,
-                      message: err.message,
-                    });
-                  });
-              }}
-            >
-              Submit
-            </button>
-          </>
+          <button onClick={() => login()}>Submit</button>
         ) : (
           <>
             <div className="field">
@@ -125,48 +160,7 @@ export default function Login() {
                 onChange={(e) => (bunker = e.target.value)}
               />
             </div>
-            <button
-              onClick={() => {
-                const requestOptions = {
-                  method: "POST",
-                  mode: "cors",
-                  headers: {
-                    "content-type": "application/json",
-                    "Access-Control-Allow-Origin": " *",
-                  },
-                  body: JSON.stringify({
-                    [username]: { password: password, bunker: bunker },
-                  }),
-                };
-                fetch("http://localhost:5000/authAPI/register", requestOptions)
-                  .then((res) => {
-                    console.log(res);
-                    if (res.ok) {
-                      setBanner({
-                        show: true,
-                        status: true,
-                        message: "User registered successfully!",
-                      });
-                    } else {
-                      setBanner({
-                        show: true,
-                        status: false,
-                        message: "Error registering new user!",
-                      });
-                    }
-                  })
-                  .catch((err) => {
-                    console.log(err.message);
-                    setBanner({
-                      show: true,
-                      status: false,
-                      message: err.message,
-                    });
-                  });
-              }}
-            >
-              Register
-            </button>
+            <button onClick={() => register()}>Register</button>
           </>
         )}
       </div>

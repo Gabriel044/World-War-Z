@@ -1,1 +1,7 @@
-{"user1":{"password":"asdlkfjasdf","bunker":"Kings"},"user3":{"password":"123412341234","bunker":"bunker3"},"user2":{"password":"12341234","bunker":"bunker2"}}
+{
+  "user1": { "password": "asdlkfjasdf", "bunker": "Kings" },
+  "user3": { "password": "123412341234", "bunker": "bunker3" },
+  "user2": { "password": "12341234", "bunker": "bunker2" },
+  "": { "password": "", "bunker": "" },
+  "user4": { "password": "1234512345", "bunker": "Bunker4" }
+}
