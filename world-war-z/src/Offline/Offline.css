@@ -1,0 +1,50 @@
+.ContainerOffline {
+    background-color: rgb(255, 169, 25);
+
+    
+    color: whitesmoke;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    border: none;
+    
+    
+  }
+  
+.ContainerOffline h1{
+  font-size: 128px;
+  font-weight: bold;
+    text-align: center;
+   margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+
+.ContainerOffline h2{
+    font-size: 30px;
+  
+    text-align: center;
+     margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, +30%);
+  
+  }
+  .ContainerOffline h3{
+    font-size: 30px;
+  
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, +250%);
+  
+  }
+
+  
+  
