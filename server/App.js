@@ -7,11 +7,8 @@ const app = express();
 
 try {
   const data = fs.readFileSync("./Database/users.json", "utf8");
-
   // parse JSON string to JSON object
   var users = JSON.parse(data);
-
-  console.log(users);
 } catch (err) {
   console.log(`Error reading file from disk: ${err}`);
 }
@@ -35,8 +32,12 @@ app.post("/authAPI/login", (req, res) => {
 app.post("/authAPI/register", (req, res) => {
   const user = req.body;
   const keys = Object.keys(user);
+  console.log(user);
+  console.log("-------");
+  console.log(users);
   users[keys[0]] = user[keys[0]];
-
+  console.log("-------");
+  console.log(users);
   fs.writeFile(
     "./Database/users.json",
     JSON.stringify(users),

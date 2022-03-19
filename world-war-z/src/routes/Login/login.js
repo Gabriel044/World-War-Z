@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import Banner from "../../components/Banner/banner";
 import "./login.css";
 
+let username = "";
+let password = "";
+let bunker = "";
+
 export default function Login() {
   const [headerItem, setHeaderItem] = useState("Login");
   const [banner, setBanner] = useState({
@@ -11,10 +15,6 @@ export default function Login() {
     message: null,
   });
   const navigate = useNavigate();
-
-  let username = "";
-  let password = "";
-  let bunker = "";
 
   function login() {
     const requestOptions = {
@@ -33,6 +33,9 @@ export default function Login() {
       .then((res) => {
         console.log(res);
         if (res.ok) {
+          username = "";
+          password = "";
+          bunker = "";
           //Remember to return from request the bunker, and send to new page the username and bunker.
           navigate("/menu/blog", {
             username: username,
@@ -68,10 +71,14 @@ export default function Login() {
         [username]: { password: password, bunker: bunker },
       }),
     };
+    console.log(requestOptions.body);
     fetch("http://localhost:5000/authAPI/register", requestOptions)
       .then((res) => {
         console.log(res);
         if (res.ok) {
+          username = "";
+          password = "";
+          bunker = "";
           setBanner({
             show: true,
             status: true,
