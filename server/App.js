@@ -22,6 +22,7 @@ app.use(express.static(path.join(__dirname, "../world-war-z", "/build")));
 
 app.post("/authAPI/login", (req, res) => {
   const user = req.body;
+  res.setHeader("Content-Type", "application/json");
   if (users[user.username] && users[user.username].password == user.password) {
     res.status(200).json({ message: users[user.username].bunker });
   } else {
@@ -32,12 +33,8 @@ app.post("/authAPI/login", (req, res) => {
 app.post("/authAPI/register", (req, res) => {
   const user = req.body;
   const keys = Object.keys(user);
-  console.log(user);
-  console.log("-------");
-  console.log(users);
+  res.setHeader("Content-Type", "application/json");
   users[keys[0]] = user[keys[0]];
-  console.log("-------");
-  console.log(users);
   fs.writeFile(
     "./Database/users.json",
     JSON.stringify(users),
@@ -54,10 +51,10 @@ app.post("/authAPI/register", (req, res) => {
 });
 
 app.get("/blogs", (req, res) => {
+  res.setHeader("Content-Type", "application/json");
   try {
     const blogs = fs.readFileSync("./Database/blogs.json", "utf8");
     // parse JSON string to JSON object
-    res.setHeader("Content-Type", "application/json");
     res.status(200).json({ blogs: blogs });
   } catch (err) {
     console.log(`Error reading file from disk: ${err}`);
