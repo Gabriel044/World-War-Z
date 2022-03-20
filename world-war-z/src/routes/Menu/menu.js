@@ -1,6 +1,7 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { IoMapSharp, IoHome, IoPersonSharp } from "react-icons/io5";
+import { GiRaiseZombie } from "react-icons/gi";
 import Blog from "../Blog/blog";
 import BunkerMap from "../BunkerMap/bunkerMap";
 import "./menu.css";
@@ -11,20 +12,33 @@ const sections = [
   { sectionName: "Profile", icon: <IoPersonSharp style={{ fill: "white" }} /> },
 ];
 
-export default function Menu({ props }) {
-  console.log(props);
+export default function Menu() {
+  const { state } = useLocation();
+  const { username, bunker } = state;
   return (
     <div id="ContainerMenu">
       <div id="SideBar">
+        <div id="SideBarHeader">
+          <GiRaiseZombie style={{ fontSize: 40, margin: "auto" }} />
+          <p style={{ width: "fit-content", margin: 0 }}>Survivors Community</p>
+        </div>
         {sections.map((section, index) => (
-          <div className="Sections">
+          <div className="Sections" key={index}>
             {section.icon}
-            <button className="SectionsButton" key={index}>
-              {section.sectionName}
-            </button>
+            <button className="SectionsButton">{section.sectionName}</button>
           </div>
         ))}
-        <button id="LogOut">Log Out</button>
+        <div id="Footer">
+          <p>
+            <b>User: </b>
+            {username}
+          </p>
+          <p>
+            <b>From: </b>
+            {bunker}
+          </p>
+          <button id="LogOut">Log Out</button>
+        </div>
       </div>
       <Routes>
         <Route path="/blog" element={<Blog />} />

@@ -33,14 +33,28 @@ export default function Login() {
       .then((res) => {
         console.log(res);
         if (res.ok) {
-          username = "";
-          password = "";
-          bunker = "";
-          //Remember to return from request the bunker, and send to new page the username and bunker.
-          navigate("/menu/blog", {
-            username: username,
-            bunker: bunker,
-          });
+          res
+            .json()
+            .then((object) => {
+              console.log(object);
+              bunker = object.message;
+              navigate("/menu/blog", {
+                state: {
+                  username: username,
+                  bunker: bunker,
+                },
+              });
+              username = "";
+              password = "";
+              bunker = "";
+            })
+            .catch((err) => {
+              setBanner({
+                show: true,
+                status: false,
+                message: err.message,
+              });
+            });
         } else {
           setBanner({
             show: true,
@@ -71,7 +85,7 @@ export default function Login() {
         [username]: { password: password, bunker: bunker },
       }),
     };
-    console.log(requestOptions.body);
+
     fetch("http://localhost:5000/authAPI/register", requestOptions)
       .then((res) => {
         console.log(res);
