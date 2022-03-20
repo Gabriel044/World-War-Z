@@ -1,16 +1,16 @@
-{
-  "post1": {
+[
+  {
     "title": "My first Blog",
     "author": "user1",
     "bunker": "bunker1",
     "date": "17-03-2024",
     "content": "Day 1 of surviing this apocalipsis zombie. Lost my kids to a gym rat zombie. At least got time to escape."
   },
-  "post2": {
+  {
     "title": "Food search",
     "author": "user2",
     "bunker": "bunker2",
     "date": "29-03-2024",
     "content": "Found an empty Walmart on 15th Avenue. Seems to be fully stocked. I think I´ll steal the good stuff tomorrow. Need to make more research before actually going in. I don´t want to get bitten by a zombie."
   }
-}
+]

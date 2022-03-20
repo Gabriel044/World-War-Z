@@ -52,3 +52,14 @@ app.post("/authAPI/register", (req, res) => {
     }
   );
 });
+
+app.get("/blogs", (req, res) => {
+  try {
+    const blogs = fs.readFileSync("./Database/blogs.json", "utf8");
+    // parse JSON string to JSON object
+    res.setHeader("Content-Type", "application/json");
+    res.status(200).json({ blogs: blogs });
+  } catch (err) {
+    console.log(`Error reading file from disk: ${err}`);
+  }
+});

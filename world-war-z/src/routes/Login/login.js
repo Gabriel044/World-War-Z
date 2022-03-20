@@ -155,7 +155,9 @@ export default function Login() {
           />
         </div>
         {headerItem == "Login" ? (
-          <button onClick={() => login()}>Submit</button>
+          <button className="FormButton" onClick={() => login()}>
+            Submit
+          </button>
         ) : (
           <>
             <div className="field">
@@ -167,7 +169,9 @@ export default function Login() {
                 onChange={(e) => (bunker = e.target.value)}
               />
             </div>
-            <button onClick={() => register()}>Register</button>
+            <button className="FormButton" onClick={() => register()}>
+              Register
+            </button>
           </>
         )}
       </div>

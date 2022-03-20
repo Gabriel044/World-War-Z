@@ -1,0 +1,23 @@
+.Post {
+  max-width: 600px;
+  padding: 1rem;
+  margin: 1rem auto;
+  border-radius: 1rem;
+  background-color: #1a2733;
+  color: #f2f8fa;
+}
+.Header {
+  border-bottom: 2px solid #28323d;
+}
+.SubHeader {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+.Body {
+  margin-top: 1rem;
+}
+h2 {
+  text-align: center;
+  margin: 0;
+}
