@@ -121,7 +121,7 @@ export default function Login() {
         <div id="Header">
           <p
             className={
-              headerItem == "Login" ? "HeaderItemSelected" : "HeaderItem"
+              headerItem === "Login" ? "HeaderItemSelected" : "HeaderItem"
             }
             onClick={() => setHeaderItem("Login")}
           >
@@ -129,7 +129,7 @@ export default function Login() {
           </p>
           <p
             className={
-              headerItem == "Sign Up" ? "HeaderItemSelected" : "HeaderItem"
+              headerItem === "Sign Up" ? "HeaderItemSelected" : "HeaderItem"
             }
             onClick={() => setHeaderItem("Sign Up")}
           >
@@ -154,7 +154,7 @@ export default function Login() {
             onChange={(e) => (password = e.target.value)}
           />
         </div>
-        {headerItem == "Login" ? (
+        {headerItem === "Login" ? (
           <button className="FormButton" onClick={() => login()}>
             Submit
           </button>

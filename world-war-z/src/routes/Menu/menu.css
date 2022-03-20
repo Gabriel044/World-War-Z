@@ -8,6 +8,32 @@
 }
 
 #SideBar {
-  height: 100%;
   border-right: 2px solid #26303a;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.Sections {
+  margin: 0 auto;
+}
+
+.SectionsButton {
+  background: none;
+  font-size: 18px;
+  border: none;
+  font-weight: bold;
+  color: #f2f8fa;
+  margin: 0.5rem;
+}
+
+#LogOut {
+  background-color: #4aa0eb;
+  border-radius: 1rem;
+  padding: 1rem;
+  font-size: 16px;
+  border: none;
+  font-weight: bold;
+  color: #f2f8fa;
+  margin-top: auto;
+  margin-bottom: 0;
 }

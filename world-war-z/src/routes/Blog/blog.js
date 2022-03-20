@@ -22,7 +22,7 @@ export default function Blog() {
 
   return (
     <div id="BlockContainer">
-      <div id="MainHeader">News Feedback</div>
+      <div id="MainHeader">The End News</div>
       <div id="FeedContainer">
         {posts.map((post, index) => (
           <Post post={post} key={index} />
