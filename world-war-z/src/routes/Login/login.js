@@ -44,9 +44,9 @@ export default function Login() {
                   bunker: bunker,
                 },
               });
-              username = "";
+              /* username = "";
               password = "";
-              bunker = "";
+              bunker = ""; */
             })
             .catch((err) => {
               setBanner({
@@ -90,9 +90,9 @@ export default function Login() {
       .then((res) => {
         console.log(res);
         if (res.ok) {
-          username = "";
+          /* username = "";
           password = "";
-          bunker = "";
+          bunker = ""; */
           setBanner({
             show: true,
             status: true,
