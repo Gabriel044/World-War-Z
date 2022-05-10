@@ -155,6 +155,7 @@ export default function Login() {
           <br />
           <input
             type="text"
+            className="LoginInput"
             placeholder="Example"
             onChange={(e) => (username = e.target.value)}
           />
@@ -164,6 +165,7 @@ export default function Login() {
           <br />
           <input
             type="password"
+            className="LoginInput"
             placeholder="Secret Password"
             onChange={(e) => (password = e.target.value)}
           />
@@ -179,6 +181,7 @@ export default function Login() {
               <br />
               <input
                 type="text"
+                className="LoginInput"
                 placeholder="Bunker_1"
                 onChange={(e) => (bunker = e.target.value)}
               />

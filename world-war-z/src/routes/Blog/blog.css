@@ -3,6 +3,7 @@
   height: 100%;
   display: grid;
   grid-template-rows: min-content auto;
+  position: relative;
 }
 
 #MainHeader {
@@ -18,4 +19,12 @@
   overflow-y: auto;
   height: 100%;
   width: 100%;
+}
+#AddPost {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  font-size: 60px;
+  color: whitesmoke;
+  cursor: pointer;
 }

@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { IoAddCircleSharp } from "react-icons/io5";
 import Post from "../../components/Post/post";
+import PostForm from "../../components/PostForm/postForm.js";
 import "./blog.css";
 
-export default function Blog() {
+export default function Blog({ username, bunker }) {
   const [posts, setPosts] = useState([]);
+  const [addPost, setAddPost] = useState(false);
   console.log(typeof posts);
-  useEffect(() => {
-    console.log("Hi there");
+
+  function getPosts() {
     fetch("http://localhost:5000/blogs")
       .then((res) => {
         res
@@ -18,6 +21,10 @@ export default function Blog() {
           .catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));
+  }
+
+  useEffect(() => {
+    getPosts();
   }, []);
 
   return (
@@ -28,6 +35,15 @@ export default function Blog() {
           <Post post={post} key={index} />
         ))}
       </div>
+      <IoAddCircleSharp id="AddPost" onClick={() => setAddPost(true)} />
+      {addPost && (
+        <PostForm
+          user={username}
+          bunker={bunker}
+          setAddPost={setAddPost}
+          getPosts={getPosts}
+        />
+      )}
     </div>
   );
 }

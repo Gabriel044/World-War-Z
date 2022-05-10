@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { IoMapSharp, IoHome, IoPersonSharp } from "react-icons/io5";
 import { GiRaiseZombie } from "react-icons/gi";
 import Blog from "../Blog/blog";
@@ -15,6 +15,12 @@ const sections = [
 export default function Menu() {
   const { state } = useLocation();
   const { username, bunker } = state;
+  const navigate = useNavigate();
+
+  function logOut() {
+    navigate("/", { replace: true });
+  }
+
   return (
     <div id="ContainerMenu">
       <div id="SideBar">
@@ -37,12 +43,20 @@ export default function Menu() {
             <b>From: </b>
             {bunker}
           </p>
-          <button id="LogOut">Log Out</button>
+          <button id="LogOut" onClick={() => logOut()}>
+            Log Out
+          </button>
         </div>
       </div>
       <Routes>
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/map" element={<BunkerMap />} />
+        <Route
+          path="/blog"
+          element={<Blog username={username} bunker={bunker} />}
+        />
+        <Route
+          path="/map"
+          element={<BunkerMap username={username} bunker={bunker} />}
+        />
       </Routes>
     </div>
   );

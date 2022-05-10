@@ -13,6 +13,14 @@ try {
   console.log(`Error reading file from disk: ${err}`);
 }
 
+try {
+  const data = fs.readFileSync("./Database/blogs.json", "utf8");
+  // parse JSON string to JSON object
+  var blogs = JSON.parse(data);
+} catch (err) {
+  console.log(`Error reading file from disk: ${err}`);
+}
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
@@ -42,9 +50,11 @@ app.post("/authAPI/register", (req, res) => {
     (err) => {
       if (err) {
         console.log(`Error writing file: ${err}`);
-        res.status(400).send("Unable to register, try again later!");
+        res
+          .status(400)
+          .send({ message: "Unable to register, try again later!" });
       } else {
-        res.status(200).send("Registration Successful!");
+        res.status(200).send({ message: "Registration Successful!" });
       }
     }
   );
@@ -59,4 +69,24 @@ app.get("/blogs", (req, res) => {
   } catch (err) {
     console.log(`Error reading file from disk: ${err}`);
   }
+});
+
+app.post("/blogs", (req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  blogs.push(req.body);
+  fs.writeFile(
+    "./Database/blogs.json",
+    JSON.stringify(blogs),
+    "utf8",
+    (err) => {
+      if (err) {
+        console.log(`Error writing file: ${err}`);
+        res
+          .status(400)
+          .send({ message: "Unable to register, try again later!" });
+      } else {
+        res.status(200).send({ message: "Registration Successful!" });
+      }
+    }
+  );
 });

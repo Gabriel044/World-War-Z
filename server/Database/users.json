@@ -3,5 +3,8 @@
   "user3": { "password": "123412341234", "bunker": "bunker3" },
   "user2": { "password": "12341234", "bunker": "bunker2" },
   "user4": { "password": "1234512345", "bunker": "Bunker4" },
-  "User5": { "password": "1234512345", "bunker": "Bunker5" }
+  "User5": { "password": "1234512345", "bunker": "Bunker5" },
+  "user6": { "password": "12341234", "bunker": "Bunker6" },
+  "usuario7": { "password": "12341234", "bunker": "Bunker7" },
+  "User8": { "password": "dadadadada", "bunker": "Bunker2" }
 }
