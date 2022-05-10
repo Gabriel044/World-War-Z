@@ -17,6 +17,14 @@ export default function Login() {
   const navigate = useNavigate();
 
   function login() {
+    if (username == "" || password == "") {
+      setBanner({
+        show: true,
+        status: false,
+        message: "Fill all the input fields please.",
+      });
+      return;
+    }
     const requestOptions = {
       method: "POST",
       mode: "cors",
@@ -74,6 +82,14 @@ export default function Login() {
   }
 
   function register() {
+    if (username == "" || password == "" || bunker == "") {
+      setBanner({
+        show: true,
+        status: false,
+        message: "Fill all the input fields please.",
+      });
+      return;
+    }
     const requestOptions = {
       method: "POST",
       mode: "cors",

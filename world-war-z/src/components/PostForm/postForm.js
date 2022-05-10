@@ -1,10 +1,16 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
+import Banner from "../../components/Banner/banner";
 import "./postForm.css";
 
 export default function PostForm({ user, bunker, setAddPost, getPosts }) {
   const [showBanner, setShowBanner] = useState(false);
   const titleRef = useRef();
   const bodyRef = useRef();
+
+  if (showBanner)
+    setTimeout(() => {
+      setShowBanner(false);
+    }, 10000);
 
   function addPost() {
     let date = new Date();
@@ -44,6 +50,9 @@ export default function PostForm({ user, bunker, setAddPost, getPosts }) {
 
   return (
     <div id="PostFormContainer">
+      {showBanner && (
+        <Banner status={false} message={"Fill all the text fields"} />
+      )}
       <input
         type="text"
         ref={titleRef}
