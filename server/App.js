@@ -21,6 +21,14 @@ try {
   console.log(`Error reading file from disk: ${err}`);
 }
 
+try {
+  const data = fs.readFileSync("./Database/bunkers.json", "utf8");
+  // parse JSON string to JSON object
+  var bunkers = JSON.parse(data);
+} catch (err) {
+  console.log(`Error reading file from disk: ${err}`);
+}
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
@@ -69,6 +77,12 @@ app.get("/users/:userId", (req, res) => {
   userId = req.params.userId;
   res.setHeader("Content-Type", "application/json");
   res.status(200).send({ user: users[userId] });
+});
+
+app.get("/bunkers/:bunkerId", (req, res) => {
+  bunkerId = req.params.bunkerId;
+  res.setHeader("Content-Type", "application/json");
+  res.status(200).send({ bunker: bunkers[bunkerId] });
 });
 
 app.get("/blogs", (req, res) => {
