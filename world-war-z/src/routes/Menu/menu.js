@@ -24,7 +24,7 @@ export default function Menu() {
 
   return (
     <div id="ContainerMenu">
-      <div id="SideBar">
+      <nav id="SideBar">
         <div id="SideBarHeader">
           <GiRaiseZombie style={{ fontSize: 40, margin: "auto" }} />
           <p style={{ width: "fit-content", margin: 0 }}>Survivors Community</p>
@@ -61,21 +61,23 @@ export default function Menu() {
             Log Out
           </button>
         </div>
+      </nav>
+      <div id="scroll">
+        <Routes>
+          <Route
+            path="/blog"
+            element={<Blog username={username} bunker={bunker} />}
+          />
+          <Route
+            path="/maps"
+            element={<BunkerMap username={username} bunker={bunker} />}
+          />
+          <Route
+            path="/profile"
+            element={<Profile username={username} bunker={bunker} />}
+          />
+        </Routes>
       </div>
-      <Routes>
-        <Route
-          path="/blog"
-          element={<Blog username={username} bunker={bunker} />}
-        />
-        <Route
-          path="/maps"
-          element={<BunkerMap username={username} bunker={bunker} />}
-        />
-        <Route
-          path="/profile"
-          element={<Profile username={username} bunker={bunker} />}
-        />
-      </Routes>
     </div>
   );
 }

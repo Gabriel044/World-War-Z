@@ -55,3 +55,6 @@
   color: #f2f8fa;
   cursor: pointer;
 }
+#scroll {
+  overflow-y: auto;
+}
