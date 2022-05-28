@@ -4,6 +4,7 @@ import { IoMapSharp, IoHome, IoPersonSharp } from "react-icons/io5";
 import { GiRaiseZombie } from "react-icons/gi";
 import Blog from "../Blog/blog";
 import BunkerMap from "../BunkerMap/bunkerMap";
+import Profile from "../Profile/profile";
 import "./menu.css";
 
 const sections = [
@@ -69,6 +70,10 @@ export default function Menu() {
         <Route
           path="/maps"
           element={<BunkerMap username={username} bunker={bunker} />}
+        />
+        <Route
+          path="/profile"
+          element={<Profile username={username} bunker={bunker} />}
         />
       </Routes>
     </div>

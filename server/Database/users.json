@@ -1,10 +1,42 @@
 {
-  "user1": { "password": "asdlkfjasdf", "bunker": "Kings" },
-  "user3": { "password": "123412341234", "bunker": "bunker3" },
-  "user2": { "password": "12341234", "bunker": "bunker2" },
-  "user4": { "password": "1234512345", "bunker": "Bunker4" },
-  "User5": { "password": "1234512345", "bunker": "Bunker5" },
-  "user6": { "password": "12341234", "bunker": "Bunker6" },
-  "usuario7": { "password": "12341234", "bunker": "Bunker7" },
-  "User8": { "password": "dadadadada", "bunker": "Bunker2" }
+  "user1": {
+    "password": "asdlkfjasdf",
+    "bunker": "Kings",
+    "joinedDate": "12/12/2012"
+  },
+  "user3": {
+    "password": "123412341234",
+    "bunker": "bunker3",
+    "joinedDate": "12/12/2012"
+  },
+  "user2": {
+    "password": "12341234",
+    "bunker": "bunker2",
+    "joinedDate": "12/12/2012"
+  },
+  "user4": {
+    "password": "1234512345",
+    "bunker": "Bunker4",
+    "joinedDate": "12/12/2012"
+  },
+  "User5": {
+    "password": "1234512345",
+    "bunker": "Bunker5",
+    "joinedDate": "12/12/2012"
+  },
+  "user6": {
+    "password": "12341234",
+    "bunker": "Bunker6",
+    "joinedDate": "12/12/2012"
+  },
+  "usuario7": {
+    "password": "12341234",
+    "bunker": "Bunker7",
+    "joinedDate": "12/12/2012"
+  },
+  "User8": {
+    "password": "dadadadada",
+    "bunker": "Bunker2",
+    "joinedDate": "12/12/2012"
+  }
 }

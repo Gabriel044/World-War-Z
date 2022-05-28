@@ -41,6 +41,11 @@ app.post("/authAPI/login", (req, res) => {
 app.post("/authAPI/register", (req, res) => {
   const user = req.body;
   const keys = Object.keys(user);
+  var dateObj = new Date();
+  var month = dateObj.getUTCMonth() + 1; //months from 1-12
+  var day = dateObj.getUTCDate();
+  var year = dateObj.getUTCFullYear();
+  user[joinDate] = day + "/" + month + "/" + year;
   res.setHeader("Content-Type", "application/json");
   users[keys[0]] = user[keys[0]];
   fs.writeFile(
@@ -58,6 +63,12 @@ app.post("/authAPI/register", (req, res) => {
       }
     }
   );
+});
+
+app.get("/users/:userId", (req, res) => {
+  userId = req.params.userId;
+  res.setHeader("Content-Type", "application/json");
+  res.status(200).send({ user: users[userId] });
 });
 
 app.get("/blogs", (req, res) => {
