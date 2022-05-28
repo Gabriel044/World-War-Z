@@ -31,7 +31,20 @@ export default function Menu() {
         {sections.map((section, index) => (
           <div className="Sections" key={index}>
             {section.icon}
-            <button className="SectionsButton">{section.sectionName}</button>
+            <button
+              className="SectionsButton"
+              onClick={() => {
+                navigate(`/menu/${section.sectionName.toLowerCase()}`, {
+                  state: {
+                    username: username,
+                    bunker: bunker,
+                  },
+                  replace: true,
+                });
+              }}
+            >
+              {section.sectionName}
+            </button>
           </div>
         ))}
         <div id="Footer">
@@ -54,7 +67,7 @@ export default function Menu() {
           element={<Blog username={username} bunker={bunker} />}
         />
         <Route
-          path="/map"
+          path="/maps"
           element={<BunkerMap username={username} bunker={bunker} />}
         />
       </Routes>
