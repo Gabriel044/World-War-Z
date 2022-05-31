@@ -1,11 +1,16 @@
-import React,{useEffect} from "react";
+import React,{useEffect, useState} from "react";
 import "./bunkerMap.css";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
+import { IoAddCircleSharp } from "react-icons/io5";
+import BunkerForm from "../../components/BunkerForm/bunkerform";
+
 
 export default function BunkerMap() {
   let map;
-  
+  const [bunkers, setBunkers] = useState([]);
+  const [addBunker, setAddBunker] = useState(false);
+
   useEffect(() => {
     mapboxgl.accessToken = 'pk.eyJ1IjoicHJ1ZWJhYSIsImEiOiJjbDJ6aHRldzQxZnJ0M2lwMmpmbHM1ZHJjIn0.7usXzE9zv3Oi6NpMMYBqJA'; 
     //mapa
@@ -20,7 +25,12 @@ export default function BunkerMap() {
     agregarMarcadores(puntosObjeto)
   },[])
   
+  function getBunkers(){
+    
+  }
 
+
+  
   const puntosObjeto=[
     {
         lat:-103.455739,
@@ -49,6 +59,9 @@ export default function BunkerMap() {
 return <div>
   
   <div id='map' style={{width: "500px", height: "500px"}}></div>
+  
+  {addBunker && (<BunkerForm setAddBunker={setAddBunker}/>)}
+  <IoAddCircleSharp id="AddPost" onClick={() => setAddBunker(true)} />
 
   </div>;
 }
