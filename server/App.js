@@ -79,6 +79,17 @@ app.get("/users/:userId", (req, res) => {
   res.status(200).send({ user: users[userId] });
 });
 
+app.get("/bunkers", (req, res) => {
+  res.setHeader("Content-Type", "application/json");
+   try {
+    const bunkers = fs.readFileSync("./Database/bunkers.json", "utf8");
+    // parse JSON string to JSON object
+    res.status(200).json({ bunker: bunkers });
+  } catch (err) {
+    console.log(`Error reading file from disk: ${err}`);
+  }
+});
+
 app.get("/bunkers/:bunkerId", (req, res) => {
   bunkerId = req.params.bunkerId;
   res.setHeader("Content-Type", "application/json");
