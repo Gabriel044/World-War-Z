@@ -19,17 +19,36 @@ export default function BunkerForm({setAddBunker}){
     let lat=latRef.current.value;
     let long=longRef.current.value;
     let alive=checkboxRef.current.value;
+    /* TODO: Agrega un poco más de validación de datos como:  
+      1. Rango válido de valores para latitud y longitud 
+    */
     if (bunkerName == "" || lat == "" || long == "" ) {
         setShowBanner(true);
         return;
       }
+
+    if (alive === "on") {alive = true} else {alive = false}
     let data={
         name:bunkerName,
-        lat:lat,
-        long:long,
+        lat:parseFloat(lat),
+        long:parseFloat(long),
         isAlive:alive
     }
     //todo: rest call yeomans :)
+    console.log("La data del bunker es: \n" + data)
+
+    fetch("http://localhost:5000/bunkers", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((e) => console.log(e));
 
   }
 
