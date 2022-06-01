@@ -34,7 +34,6 @@ export default function BunkerForm({setAddBunker}){
         long:parseFloat(long),
         isAlive:alive
     }
-    //todo: rest call yeomans :)
     console.log("La data del bunker es: \n" + data)
 
     fetch("http://localhost:5000/bunkers", {
