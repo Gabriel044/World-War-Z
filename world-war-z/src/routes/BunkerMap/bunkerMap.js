@@ -34,7 +34,7 @@ export default function BunkerMap() {
 
   },[bunkers])
   function getBunkers(){
-    fetch("http://localhost:5000/bunkers")
+    fetch("http://192.168.1.17:5000/bunkers")
       .then((res) => {
         res
           .json()

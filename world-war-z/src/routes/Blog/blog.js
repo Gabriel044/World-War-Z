@@ -25,7 +25,7 @@ export default function Blog({ username, bunker }) {
   } 
 
   function getPosts() {
-    fetch("http://localhost:5000/blogs")
+    fetch("http://192.168.1.17:5000/blogs")
       .then((res) => {
         res
           .json()

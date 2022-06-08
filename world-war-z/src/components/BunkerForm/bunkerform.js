@@ -36,7 +36,7 @@ export default function BunkerForm({setAddBunker}){
     }
     console.log("La data del bunker es: \n" + data)
 
-    fetch("http://localhost:5000/bunkers", {
+    fetch("http://192.168.1.17:5000/bunkers", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
