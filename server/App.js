@@ -126,3 +126,24 @@ app.post("/blogs", (req, res) => {
     }
   );
 });
+
+app.post("/bunkers", (req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  //bunkers.push(req.body);
+  bunkers[req.body.name] = req.body;
+  fs.writeFile(
+    "./Database/bunkers.json",
+    JSON.stringify(bunkers),
+    "utf8",
+    (err) => {
+      if (err) {
+        console.log(`Error writing file: ${err}`);
+        res
+          .status(400)
+          .send({ message: "Unable to register, try again later!" });
+      } else {
+        res.status(200).send({ message: "Registration Successful!" });
+      }
+    }
+  );
+});

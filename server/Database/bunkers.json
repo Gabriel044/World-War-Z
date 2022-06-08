@@ -16,5 +16,11 @@
     "lat": -103.442014,
     "long": 20.664497,
     "isAlive": true
+  },
+  "Bunker del Julio": {
+    "name": "Bunker del Julio",
+    "lat": -103.4119,
+    "long": 20.7104,
+    "isAlive": true
   }
 }
