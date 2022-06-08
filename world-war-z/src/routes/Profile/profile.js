@@ -25,18 +25,18 @@ export default function Profile({ username, bunker }) {
   }, []);
   console.log(bunkerData);
   return (
-    <div id="ProfileCard">
+    <div id="ProfileCard" aria-label="Profile">
       <FaUser style={{ fontSize: 100, margin: "auto" }} />
-      <p>Username: {username}</p>
-      <p>
+      <p aria-label="Username">Username: {username}</p>
+      <p aria-label="Bunker">
         In bunker {bunker} with status{" "}
         {bunkerData ? (bunkerData.isAlive ? "alive" : "death") : "..."}
       </p>
-      <p>
+      <p aria-label="latitud and longitud">
         Located at{" "}
         {bunkerData ? `lat: ${bunkerData.lat} long: ${bunkerData.long}` : "..."}
       </p>
-      <p>Joined in {user ? user.joinedDate : ""}</p>
+      <p aria-label="joined in">Joined in {user ? user.joinedDate : ""}</p>
     </div>
   );
 }

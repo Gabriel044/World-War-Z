@@ -55,12 +55,14 @@ export default function PostForm({ user, bunker, setAddPost, getPosts }) {
       )}
       <input
         type="text"
+        aria-label="PostTitleInput"
         ref={titleRef}
         className="PostFormInput"
         placeholder="Post Title"
       />
       <textarea
         type="textarea"
+        aria-label="PostContentInput"
         ref={bodyRef}
         style={{ padding: "1rem" }}
         className="PostFormInput"
@@ -70,6 +72,7 @@ export default function PostForm({ user, bunker, setAddPost, getPosts }) {
       <div id="PostFormFooter">
         <button
           className="PostFormButton"
+          aria-label="Post"
           style={{ backgroundColor: "#4aa0eb" }}
           onClick={() => addPost()}
         >
@@ -77,6 +80,7 @@ export default function PostForm({ user, bunker, setAddPost, getPosts }) {
         </button>
         <button
           className="PostFormButton"
+          aria-label="Cancel"
           style={{ backgroundColor: "grey" }}
           onClick={() => cancelPost()}
         >

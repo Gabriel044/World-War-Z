@@ -96,7 +96,11 @@ export default function BunkerMap() {
 
   return (
     <div>
-      <div id="map" style={{ width: "500px", height: "500px" }}></div>
+      <main
+        id="map"
+        aria-label="map"
+        style={{ width: "500px", height: "500px" }}
+      ></main>
 
       {addBunker && (
         <BunkerForm
@@ -105,7 +109,11 @@ export default function BunkerMap() {
           setBunkers={setBunkers}
         />
       )}
-      <IoAddCircleSharp id="AddPost" onClick={() => setAddBunker(true)} />
+      <IoAddCircleSharp
+        id="AddPost"
+        aria-label="AddBunker"
+        onClick={() => setAddBunker(true)}
+      />
     </div>
   );
 }

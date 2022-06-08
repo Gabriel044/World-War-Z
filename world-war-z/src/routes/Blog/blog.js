@@ -10,19 +10,19 @@ export default function Blog({ username, bunker }) {
   console.log(typeof posts);
 
   function getStoredPosts() {
-    var storedPosts = localStorage.getItem("POSTS")
+    var storedPosts = localStorage.getItem("POSTS");
 
-    if (storedPosts !== null){
-      console.log("Tenemos una respuesta guardada")
-      var res = JSON.parse(storedPosts)
-      console.log("el parse está asi: ")
-      console.log(JSON.parse(res))
-      return JSON.parse(res)
+    if (storedPosts !== null) {
+      console.log("Tenemos una respuesta guardada");
+      var res = JSON.parse(storedPosts);
+      console.log("el parse está asi: ");
+      console.log(JSON.parse(res));
+      return JSON.parse(res);
     }
 
-    console.log("No tenemos ningún post guardado")
-    return []
-  } 
+    console.log("No tenemos ningún post guardado");
+    return [];
+  }
 
   function getPosts() {
     fetch("http://192.168.1.17:5000/blogs")
@@ -31,17 +31,17 @@ export default function Blog({ username, bunker }) {
           .json()
           .then((object) => {
             console.log(JSON.parse(object.blogs));
-            var userPosts = JSON.stringify(object.blogs) // Convertir object a string
+            var userPosts = JSON.stringify(object.blogs); // Convertir object a string
             localStorage.setItem("POSTS", userPosts); // Guardar string en localStorge
             setPosts(JSON.parse(object.blogs));
           })
           .catch((err) => console.log(err));
       })
       .catch((err) => {
-        console.log("Hubo un error al solicitar los posts del blog: " + err)
+        console.log("Hubo un error al solicitar los posts del blog: " + err);
         // solicitar posts de local storage
-        setPosts(getStoredPosts())
-    });
+        setPosts(getStoredPosts());
+      });
   }
 
   useEffect(() => {
@@ -51,12 +51,16 @@ export default function Blog({ username, bunker }) {
   return (
     <div id="BlockContainer">
       <div id="MainHeader">The End News</div>
-      <div id="FeedContainer">
+      <main id="FeedContainer" aria-label="BlogFeed">
         {posts.map((post, index) => (
           <Post post={post} key={index} />
         ))}
-      </div>
-      <IoAddCircleSharp id="AddPost" onClick={() => setAddPost(true)} />
+      </main>
+      <IoAddCircleSharp
+        id="AddPost"
+        aria-label="AddPost"
+        onClick={() => setAddPost(true)}
+      />
       {addPost && (
         <PostForm
           user={username}

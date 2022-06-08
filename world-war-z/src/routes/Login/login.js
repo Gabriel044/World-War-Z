@@ -147,7 +147,7 @@ export default function Login() {
         <Banner status={banner.status} message={banner.message} />
       )}
 
-      <div id="LoginCard">
+      <div id="LoginCard" aria-label={headerItem}>
         <div id="Header">
           <p
             className={
@@ -172,6 +172,7 @@ export default function Login() {
           <input
             type="text"
             className="LoginInput"
+            aria-label="UsernameInput"
             placeholder="Example"
             onChange={(e) => (username = e.target.value)}
           />
@@ -182,12 +183,17 @@ export default function Login() {
           <input
             type="password"
             className="LoginInput"
+            aria-label="PasswordInput"
             placeholder="Secret Password"
             onChange={(e) => (password = e.target.value)}
           />
         </div>
         {headerItem === "Login" ? (
-          <button className="FormButton" onClick={() => login()}>
+          <button
+            className="FormButton"
+            aria-label="LogIn"
+            onClick={() => login()}
+          >
             Submit
           </button>
         ) : (
@@ -202,7 +208,11 @@ export default function Login() {
                 onChange={(e) => (bunker = e.target.value)}
               />
             </div>
-            <button className="FormButton" onClick={() => register()}>
+            <button
+              className="FormButton"
+              aria-label="Register"
+              onClick={() => register()}
+            >
               Register
             </button>
           </>

@@ -66,29 +66,33 @@ export default function BunkerForm({ setAddBunker, setBunkers, bunkers }) {
       )}
       <input
         type="text"
+        aria-label="BunkerNameInput"
         ref={bunkerNameRef}
         className="PostFormInput"
         placeholder="Bunker Name"
       />
       <input
         type="number"
+        aria-label="BunkerLatitudInput"
         ref={latRef}
         className="PostFormInput"
         placeholder="Bunker's latitude"
       />
       <input
         type="number"
+        aria-label="BunkerLongitudeInput"
         ref={longRef}
         className="PostFormInput"
         placeholder="Bunker's longitude"
       />
       <label>
-        <input type="checkbox" ref={checkboxRef} /> isAlive
+        <input type="checkbox" aria-label="isAlive" ref={checkboxRef} /> isAlive
       </label>
 
       <div id="PostFormFooter">
         <button
           className="PostFormButton"
+          aria-label="Post"
           style={{ backgroundColor: "#4aa0eb" }}
           onClick={() => addBunker()}
         >
@@ -96,6 +100,7 @@ export default function BunkerForm({ setAddBunker, setBunkers, bunkers }) {
         </button>
         <button
           className="PostFormButton"
+          aria-label="Cancel"
           style={{ backgroundColor: "grey" }}
           onClick={() => cancelPost()}
         >
