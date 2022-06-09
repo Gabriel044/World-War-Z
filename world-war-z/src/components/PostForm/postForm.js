@@ -28,7 +28,7 @@ export default function PostForm({ user, bunker, setAddPost, getPosts }) {
       date:
         date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear(),
     };
-    fetch("http://192.168.1.17:5000/blogs", {
+    fetch("http://localhost:5000/blogs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

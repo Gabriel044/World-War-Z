@@ -37,7 +37,7 @@ export default function Login() {
         password: password,
       }),
     };
-    fetch("http://192.168.1.17:5000/authAPI/login", requestOptions)
+    fetch("http://localhost:5000/authAPI/login", requestOptions)
       .then((res) => {
         console.log(res);
         if (res.ok) {
@@ -102,7 +102,7 @@ export default function Login() {
       }),
     };
 
-    fetch("http://192.168.1.17:5000/authAPI/register", requestOptions)
+    fetch("http://localhost:5000/authAPI/register", requestOptions)
       .then((res) => {
         console.log(res);
         if (res.ok) {

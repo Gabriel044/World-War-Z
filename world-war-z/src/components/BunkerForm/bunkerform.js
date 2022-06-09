@@ -40,7 +40,7 @@ export default function BunkerForm({ setAddBunker, setBunkers, bunkers }) {
     };
     console.log("La data del bunker es: \n" + data);
 
-    fetch("http://192.168.1.17:5000/bunkers", {
+    fetch("http://localhost:5000/bunkers", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,9 +48,10 @@ export default function BunkerForm({ setAddBunker, setBunkers, bunkers }) {
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
-      .then((data) => {
+      .then((responseData) => {
         setBunkers([...bunkers, data]);
-        console.log("Success:", data);
+        setAddBunker(false);
+        console.log("Success:", responseData);
       })
       .catch((e) => console.log(e));
   }

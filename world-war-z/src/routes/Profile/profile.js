@@ -6,14 +6,14 @@ export default function Profile({ username, bunker }) {
   const [user, setUser] = useState();
   const [bunkerData, setBunkerData] = useState();
   useEffect(() => {
-    fetch(`http://192.168.1.17:5000/users/${username}`)
+    fetch(`http://localhost:5000/users/${username}`)
       .then((res) => {
         res.json().then((object) => {
           setUser(object.user);
         });
       })
       .catch((e) => console.log(e));
-    fetch(`http://192.168.1.17:5000/bunkers/${bunker}`)
+    fetch(`http://localhost:5000/bunkers/${bunker}`)
       .then((res) => {
         console.log(res);
         res.json().then((object) => {

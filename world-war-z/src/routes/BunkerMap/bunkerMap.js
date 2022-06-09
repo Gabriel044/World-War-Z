@@ -35,7 +35,7 @@ export default function BunkerMap() {
     }
   }, [bunkers]);
   function getBunkers() {
-    fetch("http://192.168.1.17:5000/bunkers")
+    fetch("http://localhost:5000/bunkers")
       .then((res) => {
         res
           .json()
@@ -83,8 +83,8 @@ export default function BunkerMap() {
 
     for (var i = 0; i < obejeto.length; i++) {
       //console.log(obejeto[i].isAlive)
-      //console.log(obejeto[i].lat)
-      //console.log(obejeto[i].long)
+      console.log(obejeto[i].lat);
+      console.log(obejeto[i].long);
       const marker1 = new mapboxgl.Marker({
         color: obejeto[i]["isAlive"] ? "green" : "black",
         rotation: 0,

@@ -19,5 +19,12 @@
     "title": "my post",
     "content": "hello there",
     "date": "11-5-2022"
+  },
+  {
+    "author": "user1",
+    "bunker": "bunker1",
+    "title": "Testing",
+    "content": "Hello from the end of the world",
+    "date": "8-6-2022"
   }
 ]
